@@ -96,7 +96,7 @@ export default function Wishes() {
       },
       {
         id: 10,
-        name: "Mohammed Toufique",
+        name: "Mohammed Asif",
         message: "Congratulations! May your union be filled with love and laughter 🎊",
         timestamp: "2024-12-26T10:45:00Z",
         attending: "attending"
@@ -113,7 +113,7 @@ export default function Wishes() {
         name: "Umar",
         message: "May Allah bless your marriage with love, harmony, and happiness 🤲",
         timestamp: "2024-12-26T10:55:00Z",
-        attending: "maybe"
+        attending: "attending"
       },
       {
         id: 13,

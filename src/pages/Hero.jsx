@@ -139,14 +139,14 @@ export default function Hero() {
                         >
                             "In the name of Allah, The Most Gracious and The Most Merciful"
                         </motion.p>
-                        <motion.h4
+                        <motion.h5
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ delay: 0.6 }}
                             className="text-3xl sm:text-2xl font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600"
                         >
                             Mrs. & Mr. Mohammed Anwar Shaikh
-                        </motion.h4>
+                        </motion.h5>
                         <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -155,14 +155,14 @@ export default function Hero() {
                         >
                             With Allah's blessings, we invite you to celebrate the Nikah of our beloved daughter. May He bless this union with love and barakah.❤
                         </motion.p>
-                        <motion.h2
+                        <motion.h1
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ delay: 0.8 }}
                             className="text-3xl sm:text-5xl font-serif bg-clip-text text-transparent bg-gradient-to-r from-[#A32453] to-[#570321]"
                         >
                             {config.data.brideName}<br></br> & <br></br> {config.data.groomName}
-                        </motion.h2>
+                        </motion.h1>
                     </div>
 
                     <motion.div

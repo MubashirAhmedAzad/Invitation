@@ -149,9 +149,12 @@ const Layout = ({ children }) => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+    <div
+      className="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/images/your-background.jpg')" }}
+    >
       <motion.div
-        className="mx-auto w-full max-w-[430px] min-h-screen bg-white relative overflow-hidden border border-gray-200 shadow-lg"
+        className="mx-auto w-full max-w-[430px] min-h-screen bg-white/80 relative overflow-hidden border border-gray-200 shadow-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}

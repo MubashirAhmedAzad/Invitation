@@ -12,7 +12,7 @@ const config = {
     // Groom's parents names
     parentGroom: "Mr. Mohammed Rafique Shah",
     // Bride's parents names
-    parentBride: "Mohammed Awar",
+    parentBride: "Mohammed Anwar",
     // Wedding date (format: YYYY-MM-DD)
     date: "2025-09-28",
     // Google Maps link for location (short clickable link)
@@ -63,9 +63,9 @@ const config = {
     // Background music settings
     audio: {
       // Music file (choose one or replace with your own file)
-      src: "/audio/fulfilling-humming.mp3", // or /audio/nature-sound.mp3
+      src: "/audio/wedding.mp3", // or /audio/nature-sound.mp3
       // Music title to display
-      title: "Fulfilling Humming", // or Nature Sound
+      title: "Bi Saraha", // or Nature Sound
       // Whether music plays automatically when website opens
       autoplay: true,
       // Whether music repeats continuously
