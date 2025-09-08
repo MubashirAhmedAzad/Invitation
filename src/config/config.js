@@ -4,7 +4,9 @@ const config = {
     title: "Pernikahan Almas Banu & Mohammed Arif",
     // Opening message/description of the invitation
     description:
-      "we Invite you to Nikaah ceremony of", // Nanti ini dibikin random
+      "'In the narne of Allah The Most Graclous and The Most Merciful Mrs. & Mr. Mohammed Anuar Shaikh
+"With Allah's blessings, we invite you to celebrate the Nikah
+of our beloved daughter. May He bless this union with love", // Nanti ini dibikin random
     // Groom's name
     groomName: "Almas Banu",
     // Bride's name
