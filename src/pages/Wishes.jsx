@@ -50,7 +50,7 @@ export default function Wishes() {
         name: "Apsar",
         message: "Best wishes for a wonderful journey ahead together 💐",
         timestamp: "2024-12-26T10:10:00Z",
-        attending: "maybe"
+        attending: "attending"
       },
       {
         id: 4,
@@ -78,7 +78,7 @@ export default function Wishes() {
         name: "Nisar",
         message: "Wishing you endless love and a beautiful life together ❤",
         timestamp: "2024-12-26T10:30:00Z",
-        attending: "maybe"
+        attending: "attending"
       },
       {
         id: 8,
@@ -96,7 +96,7 @@ export default function Wishes() {
       },
       {
         id: 10,
-        name: "Asif",
+        name: "Mohammed Toufique",
         message: "Congratulations! May your union be filled with love and laughter 🎊",
         timestamp: "2024-12-26T10:45:00Z",
         attending: "attending"
