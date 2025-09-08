@@ -4,7 +4,7 @@ const config = {
     title: "Pernikahan Almas Banu & Mohammed Arif",
     // Opening message/description of the invitation
     description:
-      "Kami akan menikah dan mengundang Anda untuk turut merayakan momen istimewa ini.", // Nanti ini dibikin random
+      "we Invite you to Nikaah ceremony of", // Nanti ini dibikin random
     // Groom's name
     groomName: "Almas Banu",
     // Bride's name
