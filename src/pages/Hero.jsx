@@ -25,20 +25,22 @@ export default function Hero() {
 
     const CountdownTimer = ({ targetDate }) => {
         const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
         function calculateTimeLeft() {
             const difference = +new Date(targetDate) - +new Date();
             let timeLeft = {};
 
             if (difference > 0) {
                 timeLeft = {
-                    hari: Math.floor(difference / (1000 * 60 * 60 * 24)),
-                    jam: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                    menit: Math.floor((difference / 1000 / 60) % 60),
-                    detik: Math.floor((difference / 1000) % 60),
+                    Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                    Hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                    Minutes: Math.floor((difference / 1000 / 60) % 60),
+                    Seconds: Math.floor((difference / 1000) % 60),
                 };
             }
             return timeLeft;
         }
+
         useEffect(() => {
             const timer = setInterval(() => {
                 setTimeLeft(calculateTimeLeft());
@@ -106,7 +108,11 @@ export default function Hero() {
 
     return (
         <>
-            <section id="home" className="min-h-screen flex flex-col items-center justify-center px-4 py-16 sm:py-20 text-center relative overflow-hidden">
+            <section
+                id="home"
+                className="min-h-screen flex flex-col items-center justify-center px-4 py-16 sm:py-20 text-center relative overflow-hidden"
+                style={{ backgroundColor: "#fff4f8" }}
+            >
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -120,7 +126,7 @@ export default function Hero() {
                         className="inline-block mx-auto"
                     >
                         <span className="px-4 py-1 text-sm bg-rose-50 text-rose-600 rounded-full border border-rose-200">
-                            Catat Tanggal Penting Ini
+                            بِسْمِ ٱللّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ
                         </span>
                     </motion.div>
 
@@ -131,15 +137,31 @@ export default function Hero() {
                             transition={{ delay: 0.4 }}
                             className="text-gray-500 font-light italic text-base sm:text-lg"
                         >
-                            InsyaAllah Kami Akan Menikah
+                            "In the name of Allah, The Most Gracious and The Most Merciful"
+                        </motion.p>
+                        <motion.h4
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ delay: 0.6 }}
+                            className="text-3xl sm:text-2xl font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600"
+                        >
+                            Mrs. & Mr. Mohammed Anwar Shaikh
+                        </motion.h4>
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.7 }}
+                            className="text-gray-600 font-light text-base sm:text-lg"
+                        >
+                            With Allah's blessings, we invite you to celebrate the Nikah of our beloved daughter. May He bless this union with love and barakah.
                         </motion.p>
                         <motion.h2
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 0.6 }}
-                            className="text-3xl sm:text-5xl font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600"
+                            transition={{ delay: 0.8 }}
+                            className="text-3xl sm:text-5xl font-serif bg-clip-text text-transparent bg-gradient-to-r from-[#A32453] to-[#570321]"
                         >
-                            {config.data.groomName} & {config.data.brideName}
+                            {config.data.brideName}<br></br> & <br></br> {config.data.groomName}
                         </motion.h2>
                     </div>
 
@@ -196,13 +218,13 @@ export default function Hero() {
                                     className="space-y-2"
                                 >
                                     <p className="text-gray-500 font-serif italic text-sm">
-                                        Kepada Yth.
+                                        With love to.
                                     </p>
                                     <p className="text-gray-600 font-medium text-sm">
-                                        Bapak/Ibu/Saudara/i
+                                        Our Honored Guest
                                     </p>
                                     <p className="text-rose-500 font-semibold text-lg">
-                                        {guestName ? guestName : "Tamu"}
+                                        {guestName ? guestName : "You & Family"}
                                     </p>
                                 </motion.div>
                             </div>

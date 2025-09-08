@@ -86,49 +86,6 @@ const CalendarButton = ({ icon: Icon, label, onClick, className = "" }) => (
 const SingleEventCard = ({ eventData }) => {
   const [showCalendarModal, setShowCalendarModal] = useState(false);
 
-  const googleCalendarLink = () => {
-    const startDate = new Date(`${eventData.date}T${eventData.startTime}:00`);
-    const endDate = new Date(`${eventData.date}T${eventData.endTime}:00`);
-
-    const formatDate = (date) => {
-      return date.toISOString().replace(/-|:|\.\d+/g, '');
-    };
-
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventData.title)}&dates=${formatDate(startDate)}/${formatDate(endDate)}&details=${encodeURIComponent(eventData.description)}&location=${encodeURIComponent(eventData.location)}&ctz=${eventData.timeZone}`;
-  };
-
-  const generateICSContent = () => {
-    const startDate = new Date(`${eventData.date}T${eventData.startTime}:00`);
-    const endDate = new Date(`${eventData.date}T${eventData.endTime}:00`);
-
-    const formatICSDate = (date) => {
-      return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-    };
-
-    return `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-URL:${window.location.href}
-DTSTART:${formatICSDate(startDate)}
-DTEND:${formatICSDate(endDate)}
-SUMMARY:${eventData.title}
-DESCRIPTION:${eventData.description}
-LOCATION:${eventData.location}
-END:VEVENT
-END:VCALENDAR`;
-  };
-
-  const downloadICSFile = () => {
-    const icsContent = generateICSContent();
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `${eventData.title.toLowerCase().replace(/ /g, '-')}.ics`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <div className="relative">
       <motion.div
@@ -139,14 +96,6 @@ END:VCALENDAR`;
       >
         <div className="flex justify-between items-center">
           <h3 className="text-xl font-semibold text-gray-800">{eventData.title.split(' - ')[0]}</h3>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-rose-500 hover:text-rose-600 transition-colors"
-            onClick={() => setShowCalendarModal(true)}
-          >
-            <CalendarPlus className="w-5 h-5" />
-          </motion.button>
         </div>
         <div className="space-y-3 text-gray-600">
           <div className="flex items-center space-x-3">
@@ -163,45 +112,6 @@ END:VCALENDAR`;
           </div>
         </div>
       </motion.div>
-
-      <Modal
-        isOpen={showCalendarModal}
-        onClose={() => setShowCalendarModal(false)}
-      >
-        <div className="space-y-6 ">
-          <div className="flex justify-between  items-center">
-            <h3 className="text-xl font-semibold text-gray-800">Add to Calendar</h3>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setShowCalendarModal(false)}
-              className="text-gray-500 hover:text-gray-700"
-            >
-              <X className="w-5 h-5" />
-            </motion.button>
-          </div>
-
-          <div className="space-y-3">
-            <CalendarButton
-              icon={(props) => <Chrome {...props} className="w-5 h-5 text-rose-500" />}
-              label="Google Calendar"
-              onClick={() => window.open(googleCalendarLink(), '_blank')}
-            />
-
-            <CalendarButton
-              icon={(props) => <Apple {...props} className="w-5 h-5 text-gray-900" />}
-              label="Apple Calendar"
-              onClick={downloadICSFile}
-            />
-
-            <CalendarButton
-              icon={(props) => <CalendarIcon {...props} className="w-5 h-5 text-blue-600" />}
-              label="Outlook Calendar"
-              onClick={downloadICSFile}
-            />
-          </div>
-        </div>
-      </Modal>
     </div>
   );
 };

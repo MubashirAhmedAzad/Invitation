@@ -49,7 +49,7 @@ const config = {
       },
       {
         // Second event name
-        title: "Nikhah",
+        title: "Nikhah Ceremony",
         date: "2025-09-28",
         startTime: "11:30 AM",
         //endTime: "17:30",

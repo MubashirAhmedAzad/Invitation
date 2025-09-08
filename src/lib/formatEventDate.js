@@ -15,6 +15,8 @@
  * formatEventDate("2024-01-01T00:00:00.000Z", "time")
  */
 export const formatEventDate = (isoString, format = 'full') => {
+    if (!isoString) return '';
+
     const date = new Date(isoString);
 
     const formats = {
@@ -41,10 +43,15 @@ export const formatEventDate = (isoString, format = 'full') => {
 
     // Use English (India) locale for formatting
     let formatted;
-    if (format === 'time') {
-        formatted = date.toLocaleTimeString('en-IN', formats[format]);
-    } else {
-        formatted = date.toLocaleDateString('en-IN', formats[format]);
+    try {
+        if (format === 'time') {
+            formatted = date.toLocaleTimeString('en-IN', formats[format]);
+        } else {
+            formatted = date.toLocaleDateString('en-IN', formats[format]);
+        }
+    } catch (error) {
+        // Fallback to ISO string if formatting fails
+        return date.toISOString();
     }
 
     // For 'full', ensure format is "Weekday, D Month YYYY"

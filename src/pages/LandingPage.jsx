@@ -64,9 +64,9 @@ const LandingPage = ({ onOpenInvitation }) => (
           >
             <div className="space-y-2">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-gray-800 leading-tight">
-                {config.data.groomName}
-                <span className="text-rose-400 mx-2 sm:mx-3">&</span>
                 {config.data.brideName}
+                <span className="text-rose-400 mx-2 sm:mx-3"><br></br>&<br></br></span>
+                {config.data.groomName}
               </h1>
               <div className="h-px w-16 sm:w-24 mx-auto bg-rose-200" />
             </div>
@@ -86,7 +86,7 @@ const LandingPage = ({ onOpenInvitation }) => (
               className="group relative w-full bg-rose-500 text-white px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-medium shadow-lg hover:bg-rose-600 transition-all duration-200"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                <span>Buka Undangan</span>
+                <span>Open Invitation</span>
                 <motion.span
                   animate={{ x: [0, 4, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5 }}

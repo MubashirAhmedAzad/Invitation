@@ -72,3 +72,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+body {
+  @apply bg-[#fbd5b2] text-foreground; /* Soft light purple background */
+}

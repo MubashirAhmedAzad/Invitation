@@ -25,33 +25,117 @@ export default function Wishes() {
     const [isOpen, setIsOpen] = useState(false);
 
     const options = [
-        { value: 'attending', label: 'Ya, saya akan hadir' },
-        { value: 'not-attending', label: 'Tidak, saya tidak bisa hadir' },
-        { value: 'maybe', label: 'Mungkin, saya akan konfirmasi nanti' }
+        { value: 'attending', label: 'Yes, I will attend' },
+        { value: 'not-attending', label: 'No, I cannot attend' },
+        { value: 'maybe', label: 'Maybe, I will confirm later' }
     ];
 
     const [wishes, setWishes] = useState([
-        {
-            id: 1,
-            name: "John Doe",
-            message: "Wishing you both a lifetime of love, laughter, and happiness! 🎉",
-            timestamp: "2024-12-24T23:20:00Z",
-            attending: "attending"
-        },
-        {
-            id: 2,
-            name: "Natalie",
-            message: "Wishing you both a lifetime of love, laughter, and happiness! 🎉",
-            timestamp: "2024-12-24T23:20:00Z",
-            attending: "attending"
-        },
-        {
-            id: 3,
-            name: "Abdur Rofi",
-            message: "Congratulations on your special day! May Allah bless your union! 🤲",
-            timestamp: "2024-12-25T23:08:09Z",
-            attending: "maybe"
-        }
+      {
+        id: 1,
+        name: "Azeem Shaik",
+        message: "Wishing you both a lifetime of love, laughter, and happiness! 🎉",
+        timestamp: "2024-12-26T10:00:00Z",
+        attending: "attending"
+      },
+      {
+        id: 2,
+        name: "Shoukat",
+        message: "Congratulations on your special day! May Allah bless your union! 🤲",
+        timestamp: "2024-12-26T10:05:00Z",
+        attending: "attending"
+      },
+      {
+        id: 3,
+        name: "Apsar",
+        message: "Best wishes for a wonderful journey ahead together 💐",
+        timestamp: "2024-12-26T10:10:00Z",
+        attending: "maybe"
+      },
+      {
+        id: 4,
+        name: "Sadath",
+        message: "May your marriage be filled with joy, peace, and endless blessings 🌸",
+        timestamp: "2024-12-26T10:15:00Z",
+        attending: "attending"
+      },
+      {
+        id: 5,
+        name: "Shareef",
+        message: "Congratulations! Wishing you both love and happiness always 💞",
+        timestamp: "2024-12-26T10:20:00Z",
+        attending: "attending"
+      },
+      {
+        id: 6,
+        name: "Jabiulla",
+        message: "May your bond be blessed with faith, love, and happiness 🤲",
+        timestamp: "2024-12-26T10:25:00Z",
+        attending: "attending"
+      },
+      {
+        id: 7,
+        name: "Nisar",
+        message: "Wishing you endless love and a beautiful life together ❤",
+        timestamp: "2024-12-26T10:30:00Z",
+        attending: "maybe"
+      },
+      {
+        id: 8,
+        name: "Wazeer",
+        message: "Mabrook! May Allah grant you barakah in your marriage 🌙",
+        timestamp: "2024-12-26T10:35:00Z",
+        attending: "attending"
+      },
+      {
+        id: 9,
+        name: "Areef",
+        message: "Wishing you both a happy married life filled with blessings 💐",
+        timestamp: "2024-12-26T10:40:00Z",
+        attending: "attending"
+      },
+      {
+        id: 10,
+        name: "Asif",
+        message: "Congratulations! May your union be filled with love and laughter 🎊",
+        timestamp: "2024-12-26T10:45:00Z",
+        attending: "attending"
+      },
+      {
+        id: 11,
+        name: "Gulzar",
+        message: "Wishing you both a lifetime of joy and endless happiness 😊",
+        timestamp: "2024-12-26T10:50:00Z",
+        attending: "attending"
+      },
+      {
+        id: 12,
+        name: "Umar",
+        message: "May Allah bless your marriage with love, harmony, and happiness 🤲",
+        timestamp: "2024-12-26T10:55:00Z",
+        attending: "maybe"
+      },
+      {
+        id: 13,
+        name: "Fazil",
+        message: "Best wishes on this wonderful journey as you build your new lives together 🌸",
+        timestamp: "2024-12-26T11:00:00Z",
+        attending: "attending"
+      },
+      {
+        id: 14,
+        name: "Mubashir",
+        message: "May your love grow stronger each and every year 💞",
+        timestamp: "2024-12-26T11:05:00Z",
+        attending: "attending"
+      },
+      {
+        id: 15,
+        name: "Sameer",
+        message: "Congratulations on your marriage! Wishing you joy and love always 🎉",
+        timestamp: "2024-12-26T11:10:00Z",
+        attending: "attending"
+      }
     ]);
 
     const handleSubmitWish = async (e) => {
@@ -107,7 +191,7 @@ export default function Wishes() {
                         transition={{ delay: 0.2 }}
                         className="inline-block text-rose-500 font-medium"
                     >
-                        Kirimkan Doa dan Harapan Terbaik Anda
+                        Send love and blessings 
                     </motion.span>
 
                     <motion.h2
@@ -116,7 +200,7 @@ export default function Wishes() {
                         transition={{ delay: 0.3 }}
                         className="text-4xl md:text-5xl font-serif text-gray-800"
                     >
-                        Pesan dan Doa
+                        Warm Wishes
                     </motion.h2>
 
                     {/* Decorative Divider */}
@@ -135,9 +219,12 @@ export default function Wishes() {
                 {/* Wishes List */}
                 <div className="max-w-2xl mx-auto space-y-6">
                     <AnimatePresence>
-                        <Marquee speed={20}
+                        <Marquee
+                            speed={5} // Slower speed (default was 20)
                             gradient={false}
-                            className="[--duration:20s] py-2">
+                            pauseOnHover={true} // Pause when hovered
+                            className="[--duration:40s] py-2"
+                        >
                             {wishes.map((wish, index) => (
                                 <motion.div
                                     key={wish.id}
@@ -211,11 +298,11 @@ export default function Wishes() {
                                 <div className="space-y-2">
                                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
                                         <User className="w-4 h-4" />
-                                        <span>Nama Kamu</span>
+                                        <span>Your Name</span>
                                     </div>
                                     <input
                                         type="text"
-                                        placeholder="Masukan nama kamu..."
+                                        placeholder="Enter Your Name..."
                                         className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-gray-700 placeholder-gray-400"
                                         required
                                         value={name}
@@ -231,7 +318,7 @@ export default function Wishes() {
                                 >
                                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
                                         <Calendar className="w-4 h-4" />
-                                        <span>Apakah kamu hadir?</span>
+                                        <span>Attending Status?</span>
                                     </div>
                                     <button
                                         type="button"
@@ -241,7 +328,7 @@ export default function Wishes() {
                                         <span className={attendance ? 'text-gray-700' : 'text-gray-400'}>
                                             {attendance ?
                                                 options.find(opt => opt.value === attendance)?.label
-                                                : 'Pilih kehadiran...'}
+                                                : 'Choose Option...'}
                                         </span>
                                         <ChevronDown
                                             className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'transform rotate-180' : ''
@@ -282,10 +369,10 @@ export default function Wishes() {
                                 <div className="space-y-2">
                                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
                                         <MessageCircle className="w-4 h-4" />
-                                        <span>Harapan kamu</span>
+                                        <span>Your Wishes</span>
                                     </div>
                                     <textarea
-                                        placeholder="Kirimkan harapan dan doa untuk kedua mempelai..."
+                                        placeholder="Send your wishes and prayers for the Bride and Groom..."
                                         className="w-full h-32 p-4 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 resize-none transition-all duration-200"
                                         required
                                         value={newWish}
@@ -296,7 +383,7 @@ export default function Wishes() {
                             <div className="flex items-center justify-between mt-4">
                                 <div className="flex items-center space-x-2 text-gray-500">
                                     <Smile className="w-5 h-5" />
-                                    <span className="text-sm">Berikan Doa Anda</span>
+                                    <span className="text-sm">Well Wishes</span>
                                 </div>
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
@@ -309,7 +396,7 @@ export default function Wishes() {
                                     disabled={isSubmitting}
                                 >
                                     <Send className="w-4 h-4" />
-                                    <span>{isSubmitting ? 'Sedang Mengirim...' : 'Kirimkan Doa'}</span>
+                                    <span>{isSubmitting ? 'Sending...' : 'Send'}</span>
                                 </motion.button>
                             </div>
                         </div>
