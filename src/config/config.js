@@ -37,9 +37,9 @@ const config = {
         // First event name
         title: "Pre-Wedding celebration (Baitak)",
         // Event date (format: YYYY-MM-DD)
-        date: "2025-09-27",
+        date: "2025-09-07",
         // Start time (format: HH:MM)
-        startTime: "09:00",
+        startTime: "09:00 PM",
         // End time (format: HH:MM)
         //endTime: "17:30",
         // Event venue

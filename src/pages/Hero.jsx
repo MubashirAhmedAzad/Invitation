@@ -153,7 +153,7 @@ export default function Hero() {
                             transition={{ delay: 0.7 }}
                             className="text-gray-600 font-light text-base sm:text-lg"
                         >
-                            With Allah's blessings, we invite you to celebrate the Nikah of our beloved daughter. May He bless this union with love and barakah.
+                            With Allah's blessings, we invite you to celebrate the Nikah of our beloved daughter. May He bless this union with love and barakah.❤
                         </motion.p>
                         <motion.h2
                             initial={{ scale: 0.8, opacity: 0 }}

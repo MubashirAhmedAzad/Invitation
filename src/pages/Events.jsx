@@ -50,7 +50,7 @@ export default function Events() {
                             transition={{ delay: 0.4 }}
                             className="text-gray-500 max-w-md mx-auto"
                         >
-                            We warmly invite you to celebrate this special day with us as the beginning of our journey of love. ❤
+                            With great joy, we warmly invite you to celebrate this special day of our children as they begin their journey of love.
                         </motion.p>
 
                         {/* Decorative Line */}
