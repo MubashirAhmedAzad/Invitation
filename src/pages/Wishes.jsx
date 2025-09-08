@@ -18,17 +18,18 @@ import { formatEventDate } from '@/lib/formatEventDate';
 
 export default function Wishes() {
     const [showConfetti, setShowConfetti] = useState(false);
+    const [name, setName] = useState(''); // <-- Add state for name
     const [newWish, setNewWish] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [attendance, setAttendance] = useState('');
     const [isOpen, setIsOpen] = useState(false);
 
     const options = [
-        { value: 'ATTENDING', label: 'Ya, saya akan hadir' },
-        { value: 'NOT_ATTENDING', label: 'Tidak, saya tidak bisa hadir' },
-        { value: 'MAYBE', label: 'Mungkin, saya akan konfirmasi nanti' }
+        { value: 'attending', label: 'Ya, saya akan hadir' },
+        { value: 'not-attending', label: 'Tidak, saya tidak bisa hadir' },
+        { value: 'maybe', label: 'Mungkin, saya akan konfirmasi nanti' }
     ];
-    // Example wishes - replace with your actual data
+
     const [wishes, setWishes] = useState([
         {
             id: 1,
@@ -55,7 +56,7 @@ export default function Wishes() {
 
     const handleSubmitWish = async (e) => {
         e.preventDefault();
-        if (!newWish.trim()) return;
+        if (!newWish.trim() || !name.trim() || !attendance) return;
 
         setIsSubmitting(true);
         // Simulating API call
@@ -63,14 +64,16 @@ export default function Wishes() {
 
         const newWishObj = {
             id: wishes.length + 1,
-            name: "Guest", // Replace with actual user name
+            name: name, // Use entered name
             message: newWish,
-            attend: "attending",
+            attending: attendance, // Use selected attendance
             timestamp: new Date().toISOString()
         };
 
         setWishes(prev => [newWishObj, ...prev]);
+        setName('');
         setNewWish('');
+        setAttendance('');
         setIsSubmitting(false);
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 3000);
@@ -215,8 +218,11 @@ export default function Wishes() {
                                         placeholder="Masukan nama kamu..."
                                         className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-gray-700 placeholder-gray-400"
                                         required
+                                        value={name}
+                                        onChange={e => setName(e.target.value)}
                                     />
                                 </div>
+                                {/* Attendance Select */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -227,8 +233,6 @@ export default function Wishes() {
                                         <Calendar className="w-4 h-4" />
                                         <span>Apakah kamu hadir?</span>
                                     </div>
-
-                                    {/* Custom Select Button */}
                                     <button
                                         type="button"
                                         onClick={() => setIsOpen(!isOpen)}
@@ -244,8 +248,6 @@ export default function Wishes() {
                                                 }`}
                                         />
                                     </button>
-
-                                    {/* Dropdown Options */}
                                     <AnimatePresence>
                                         {isOpen && (
                                             <motion.div
@@ -286,6 +288,8 @@ export default function Wishes() {
                                         placeholder="Kirimkan harapan dan doa untuk kedua mempelai..."
                                         className="w-full h-32 p-4 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 resize-none transition-all duration-200"
                                         required
+                                        value={newWish}
+                                        onChange={e => setNewWish(e.target.value)}
                                     />
                                 </div>
                             </div>
@@ -301,6 +305,8 @@ export default function Wishes() {
                     ${isSubmitting
                                             ? 'bg-gray-300 cursor-not-allowed'
                                             : 'bg-rose-500 hover:bg-rose-600'}`}
+                                    type="submit"
+                                    disabled={isSubmitting}
                                 >
                                     <Send className="w-4 h-4" />
                                     <span>{isSubmitting ? 'Sedang Mengirim...' : 'Kirimkan Doa'}</span>
