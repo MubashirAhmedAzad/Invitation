@@ -1,14 +1,14 @@
 const config = {
   data: {
     // Main invitation title that appears on the page
-    title: "Pernikahan Fulan & Fulana",
+    title: "Pernikahan Almas Banu & Mohammed Arif",
     // Opening message/description of the invitation
     description:
       "Kami akan menikah dan mengundang Anda untuk turut merayakan momen istimewa ini.", // Nanti ini dibikin random
     // Groom's name
-    groomName: "Fulan",
+    groomName: "Almas Banu",
     // Bride's name
-    brideName: "Fulana",
+    brideName: "Mohammed Arif",
     // Groom's parents names
     parentGroom: "Bapak Groom & Ibu Groom",
     // Bride's parents names
